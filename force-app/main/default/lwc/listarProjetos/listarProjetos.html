@@ -1,3 +1,22 @@
 <template>
-    
+    <lightning-card title="Projetos">
+        <template if:true={projetos_obtidos}>
+            <ul class="slds-m-around_medium">
+                <template for:each={projetos_obtidos} for:item="p">
+                    <li key={p.projeto.Id} class="slds-m-vertical_small">
+                        <p><strong>Nome:</strong> {p.projeto.Name}</p>
+                        <p><strong>Data de Início:</strong> {p.projeto.Data_de_Inicio__c}</p>
+                        <p><strong>Status:</strong> {p.projeto.Status__c}</p>
+                        <hr />
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <template if:true={error}>
+            <p class="slds-text-color_error slds-m-around_medium">
+                Erro ao carregar projetos: {error}
+            </p>
+        </template>
+    </lightning-card>
 </template>
