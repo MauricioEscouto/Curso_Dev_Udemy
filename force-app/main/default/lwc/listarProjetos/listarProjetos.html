@@ -2,11 +2,11 @@
     <lightning-card title="Projetos">
         <template if:true={projetos_obtidos}>
             <ul class="slds-m-around_medium">
-                <template for:each={projetos_obtidos} for:item="p">
-                    <li key={p.projeto.Id} class="slds-m-vertical_small">
-                        <p><strong>Nome:</strong> {p.projeto.Name}</p>
-                        <p><strong>Data de Início:</strong> {p.projeto.DataInicio__c}</p>
-                        <p><strong>Status:</strong> {p.projeto.Status__c}</p>
+                <template for:each={projetos_obtidos} for:item="projeto">
+                    <li key={projeto.Id} class="slds-m-vertical_small">
+                        <p><strong>Nome:</strong> {projeto.Name}</p>
+                        <p><strong>Data de Início:</strong> {projeto.DataInicio__c}</p>
+                        <p><strong>Status:</strong> {projeto.Status__c}</p>
                         <hr />
                     </li>
                 </template>

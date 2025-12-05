@@ -11,17 +11,15 @@ export default class ListarProjetos extends LightningElement {
     @wire(obterProjetosService, { accountId: '$recordId' })
     obterProjetos({error, data}) {
     if (data) {
-      this.projetos_obtidos = data.map((element) => {
-        return {
-          projeto: {
-            Id: element.Id,
-            Name: element.Name,
-            DataInicio__c: formatDateToBR(element.DataInicio__c),
-            Status__c: element.Status__c
-          }
+      this.projetos_obtidos = data.map(element => {
+      return {
+        Id: element.Id,
+        Name: element.Name,
+        DataInicio__c: formatDateToBR(element.DataInicio__c),
+        Status__c: element.Status__c
         };
       });
-
+      
     } else if (error) {
       this.error = error;
     }
