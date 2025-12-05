@@ -1,5 +1,6 @@
 import { api, LightningElement, wire } from 'lwc';
 import obterProjetosService from '@salesforce/apex/AccountService.obterProjetos';
+import { formatDateToBR } from 'c/utils';
 
 export default class ListarProjetos extends LightningElement {
     @api recordId;
@@ -15,7 +16,7 @@ export default class ListarProjetos extends LightningElement {
           projeto: {
             Id: element.Id,
             Name: element.Name,
-            Data_de_Inicio__c: element.DataInicio__c,
+            DataInicio__c: formatDateToBR(element.DataInicio__c),
             Status__c: element.Status__c
           }
         };
